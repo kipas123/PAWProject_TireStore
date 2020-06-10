@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <td>Cena:</td>
-                    <td>{$formTire->prize} zł</td>
+                    <td>{$formOffer->price} zł</td>
                 </tr>
             <hr>
                 <tr>
@@ -62,28 +62,28 @@
         </table>
                 
                 <div style="margin-top: 50px;clear:both">
-                    <form action="{$conf->action_root}" method="post">
+                    <form action="{$conf->action_root}offerSummary/{$idtire}" method="post">
                       <div style=" float: right;">
                     <button class="btn btn-action" type="submit">Kup</button>
         </div>
                     <div style=" float: right;">
-                    <input id="id_login" type="text" name="login" value="" style="float: right; margin-right: 20px; width: 20px;" class="form-control">Ilość szt.
+                    <input id="sztuki_id" type="number" name="sztuki"  min="1" max="{$formTire->quantity}"  value="1" style="font-size: 20px;float: right; margin-right: 15px; width: 80px;" class="form-control">Ilość szt.
                     </form>
                     </div>
                 </div>
     </div>
                 
 <div class="col-sm-12 offerText">{$formOffer->description}</div>
-   
-    
-    </div>
-
-        {foreach $msgs->getMessages() as $msg}
-        <div class="alert {if $msg->isInfo()}alert-success{/if}
+   {foreach $msgs->getMessages() as $msg}
+        <div style="clear:both;"class="alert {if $msg->isInfo()}alert-success{/if}
              {if $msg->isWarning()}alert-warning{/if}
              {if $msg->isError()}alert-danger{/if}" role="alert">
             {$msg->text}
         </div>
     {/foreach}
+    
+    </div>
+
+        
 
 {/block}

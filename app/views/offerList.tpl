@@ -29,7 +29,7 @@
                     </a>
                 </div>
             </div>
-            <div class="offerInfo"> Brand:{$data["brand"]} Model:{$data["model"]} Size:{$data["size"]} Prize:{$data["prize"]}zł</div>
+            <div class="offerInfo"> Brand:{$data["brand"]} Model:{$data["model"]} Size:{$data["size"]} Prize:{$data["price"]}zł</div>
         </div>
         {/if}
     {/foreach}

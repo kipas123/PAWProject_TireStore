@@ -19,5 +19,4 @@ class TireForm {
 	public $brand;
 	public $model;
 	public $size;
-        public $prize;
 }

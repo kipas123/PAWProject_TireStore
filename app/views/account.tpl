@@ -66,34 +66,34 @@
                 <tbody>
                     <tr>
                         <td>Imie:</td>
-                        <td>{$formUserData->name}</td>
+                        <td>{$formUser->name}</td>
 
                     </tr>
                     <tr>
                         <td>Nazwisko:</td>
-                        <td>{$formUserData->surname}</td>
+                        <td>{$formUser->surname}</td>
                     </tr>
                     <tr>
                         <td>Miasto:</td>
-                        <td>{$formUserData->city}</td>
+                        <td>{$formUser->city}</td>
 
                     </tr>
                     <tr>
                         <td>Ulica</td>
-                        <td>{$formUserData->street}</td>
+                        <td>{$formUser->street}</td>
                     </tr>
                     <tr>
                         <td>Numer domu:</td>
-                        <td>{$formUserData->houseNumber}</td>
+                        <td>{$formUser->houseNumber}</td>
                     </tr>
                 <hr>
                 <tr>
                     <td>Kod pocztowy:</td>
-                    <td> {$formUserData->zipcode}</td>
+                    <td> {$formUser->zipcode}</td>
                 </tr>
                 <tr>
                     <td>Numer telefonu:</td>
-                    <td>{if $formUserData->phoneNumber!=0}{$formUserData->phoneNumber}{/if}</td>
+                    <td>{if $formUser->phoneNumber!=0}{$formUser->phoneNumber}{/if}</td>
                 </tr>
                 </tbody>
             </table>

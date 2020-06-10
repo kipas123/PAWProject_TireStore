@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-30 23:00:52
+/* Smarty version 3.1.34-dev-7, created on 2020-06-09 15:06:30
   from 'C:\xampp\htdocs\ProjektPaw\app\views\account.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ed2c984839e94_17435673',
+  'unifunc' => 'content_5edf8956ec77b5_14660474',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9d231a08964569fb954e873a00a69d20fb9fb526' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\account.tpl',
-      1 => 1590872435,
+      1 => 1591707988,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed2c984839e94_17435673 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edf8956ec77b5_14660474 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3529851625ed2c9847bdf35_29746704', 'headerOffer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10788772215edf8956e48d99_94797388', 'headerOffer');
 ?>
 
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12430940925ed2c9847c4b51_08980145', 'offers');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19916773115edf8956e4f472_57468346', 'offers');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "offerTempl.tpl");
 }
 /* {block 'headerOffer'} */
-class Block_3529851625ed2c9847bdf35_29746704 extends Smarty_Internal_Block
+class Block_10788772215edf8956e48d99_94797388 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'headerOffer' => 
   array (
-    0 => 'Block_3529851625ed2c9847bdf35_29746704',
+    0 => 'Block_10788772215edf8956e48d99_94797388',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,12 +61,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'headerOffer'} */
 /* {block 'offers'} */
-class Block_12430940925ed2c9847c4b51_08980145 extends Smarty_Internal_Block
+class Block_19916773115edf8956e4f472_57468346 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'offers' => 
   array (
-    0 => 'Block_12430940925ed2c9847c4b51_08980145',
+    0 => 'Block_19916773115edf8956e4f472_57468346',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -137,41 +137,41 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <tbody>
                     <tr>
                         <td>Imie:</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['formUserData']->value->name;?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['formUser']->value->name;?>
 </td>
 
                     </tr>
                     <tr>
                         <td>Nazwisko:</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['formUserData']->value->surname;?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['formUser']->value->surname;?>
 </td>
                     </tr>
                     <tr>
                         <td>Miasto:</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['formUserData']->value->city;?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['formUser']->value->city;?>
 </td>
 
                     </tr>
                     <tr>
                         <td>Ulica</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['formUserData']->value->street;?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['formUser']->value->street;?>
 </td>
                     </tr>
                     <tr>
                         <td>Numer domu:</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['formUserData']->value->houseNumber;?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['formUser']->value->houseNumber;?>
 </td>
                     </tr>
                 <hr>
                 <tr>
                     <td>Kod pocztowy:</td>
-                    <td> <?php echo $_smarty_tpl->tpl_vars['formUserData']->value->zipcode;?>
+                    <td> <?php echo $_smarty_tpl->tpl_vars['formUser']->value->zipcode;?>
 </td>
                 </tr>
                 <tr>
                     <td>Numer telefonu:</td>
-                    <td><?php if ($_smarty_tpl->tpl_vars['formUserData']->value->phoneNumber != 0) {
-echo $_smarty_tpl->tpl_vars['formUserData']->value->phoneNumber;
+                    <td><?php if ($_smarty_tpl->tpl_vars['formUser']->value->phoneNumber != 0) {
+echo $_smarty_tpl->tpl_vars['formUser']->value->phoneNumber;
 }?></td>
                 </tr>
                 </tbody>

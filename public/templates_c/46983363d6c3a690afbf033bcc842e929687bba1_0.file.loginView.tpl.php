@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-29 12:40:59
+/* Smarty version 3.1.34-dev-7, created on 2020-06-09 14:57:21
   from 'C:\xampp\htdocs\ProjektPaw\app\views\loginView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ed0e6bb63e7b9_97649136',
+  'unifunc' => 'content_5edf8731bba862_07984154',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '46983363d6c3a690afbf033bcc842e929687bba1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\loginView.tpl',
-      1 => 1590748846,
+      1 => 1591707438,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed0e6bb63e7b9_97649136 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edf8731bba862_07984154 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4071259155ed0e6bb5f0a14_22342126', 'main');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15474438235edf8731b6c599_08601465', 'main');
 ?>
                                     <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "signTempl.tpl");
 }
 /* {block 'main'} */
-class Block_4071259155ed0e6bb5f0a14_22342126 extends Smarty_Internal_Block
+class Block_15474438235edf8731b6c599_08601465 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'main' => 
   array (
-    0 => 'Block_4071259155ed0e6bb5f0a14_22342126',
+    0 => 'Block_15474438235edf8731b6c599_08601465',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,7 +55,7 @@ registerShow">Register</a> adipisicing elit. Quo nulla quibusdam cum doloremque 
 login" method="post">
                                     <div class="top-margin">
                                         <label for="id_login">Nazwa użytkownika <span class="text-danger">*</span></label>
-                                        <input id="id_login" type="text" name="login" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->login;?>
+                                        <input id="id_login" type="text" name="login" value="<?php echo $_smarty_tpl->tpl_vars['formUser']->value->login;?>
 " class="form-control">
                                     </div>
                                     <div class="top-margin">

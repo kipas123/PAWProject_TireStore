@@ -11,7 +11,7 @@
                                 <form action="{$conf->action_root}login" method="post">
                                     <div class="top-margin">
                                         <label for="id_login">Nazwa użytkownika <span class="text-danger">*</span></label>
-                                        <input id="id_login" type="text" name="login" value="{$form->login}" class="form-control">
+                                        <input id="id_login" type="text" name="login" value="{$formUser->login}" class="form-control">
                                     </div>
                                     <div class="top-margin">
                                         <label for="id_pass">Hasło <span class="text-danger">*</span></label>

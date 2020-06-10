@@ -11,26 +11,26 @@ use app\forms\UserForm;
 
 class LoginCtrl {
 
-    private $form;
+    private $formUser;
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
-        $this->form = new UserForm();
+        $this->formUser = new UserForm();
     }
 
     public function validate() {
-        $this->form->login = ParamUtils::getFromRequest('login');
-        $this->form->pass = ParamUtils::getFromRequest('pass');
+        $this->formUser->login = ParamUtils::getFromRequest('login');
+        $this->formUser->pass = ParamUtils::getFromRequest('pass');
 
         //nie ma sensu walidować dalej, gdy brak parametrów
-        if (!isset($this->form->login))
+        if (!isset($this->formUser->login))
             return false;
 
         // sprawdzenie, czy potrzebne wartości zostały przekazane
-        if (empty($this->form->login)) {
+        if (empty($this->formUser->login)) {
             Utils::addErrorMessage('Nie podano loginu');
         }
-        if (empty($this->form->pass)) {
+        if (empty($this->formUser->pass)) {
             Utils::addErrorMessage('Nie podano hasła');
         }
 
@@ -38,30 +38,31 @@ class LoginCtrl {
         if (App::getMessages()->isError())
             return false;
         try {
-                // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                $record = App::getDB()->get("user","*",[
-                    "login" => $this->form->login,
-                    "password" => $this->form->pass
+
+            $record = App::getDB()->get("user", "*", [
+                "login" => $this->formUser->login,
+                "password" => $this->formUser->pass
+            ]);
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+        }
+        if (!empty($record)) {
+            try {
+
+                $record = App::getDB()->get("user", [
+                    "role",
+                    "iduser"], [
+                    "login" => $this->formUser->login,
                 ]);
-                
+                $this->formUser->role = $record["role"];
+                $this->formUser->iduser = $record["iduser"];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
-            } 
-        if(!empty($record)&& $this->form->login!="admin"){
-                RoleUtils::addRole('user');
-                $record = App::getDB()->get("user", "iduser", [
-                "login" => $this->form->login
-            ]);
-                SessionUtils::store("iduser", $record);
-        }else if(!empty($record)&& $this->form->login=="admin"){
-            RoleUtils::addRole('admin');
-            $record = App::getDB()->get("user", "iduser", [
-                "login" => $this->form->login
-            ]);
-                SessionUtils::store("iduser", $record);
-            
-        }    
-         else {
+            }
+
+            RoleUtils::addRole($this->formUser->role);
+            SessionUtils::store("iduser", $this->formUser->iduser);
+        } else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
         }
 
@@ -90,7 +91,7 @@ class LoginCtrl {
     }
 
     public function generateView() {
-        App::getSmarty()->assign('form', $this->form); // dane formularza do widoku
+        App::getSmarty()->assign('formUser', $this->formUser); // dane formUserularza do widoku
         App::getSmarty()->display('loginView.tpl');
     }
 

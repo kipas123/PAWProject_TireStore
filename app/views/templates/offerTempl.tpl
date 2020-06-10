@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 
-        <title>About - Progressus Bootstrap template</title>
+        <title>TireStore</title>
 
         <link rel="shortcut icon" href="{$conf->app_url}/assets/images/gt_favicon.png">
 
@@ -28,37 +28,57 @@
 
     <body>
         <!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
-		<div class="container">
-			<div class="navbar-header">
-				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="{$conf->app_url}"><img src="{$conf->app_url}/assets/images/logo.png" alt="Progressus HTML5 template"></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right">
-					<li><a href="{$conf->action_url}">Home</a></li>
-                                        <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Opony <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="{$conf->action_url}offerList/car">Opony osobwe</a></li>
-							<li><a href="{$conf->action_url}offerList/truck">Opony ciezarowe</a></li>
-						</ul>
-					</li>
-					<li class="active"><a href="about.html">O nas</a></li>
-					<li><a href="contact.html">Kontakt</a></li>
-					{if count($conf->roles)>0}
-                            <li><a href="{$conf->action_url}accountShow">Konto</a></li>           
+        <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Button for smallest screens -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="{$conf->app_url}"><img src="{$conf->app_url}/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a href="{$conf->app_url}">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opony <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{$conf->action_url}offerList/car">Opony osobwe</a></li>
+                                <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
+                            </ul>
+                        </li>
+                        {if \core\RoleUtils::inRole("admin")}
+                            <li><a href="contact.html">Admin</a></li>
+                            {/if}
+                            {if \core\RoleUtils::inRole("moderator")}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Moderator <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{$conf->action_url}moderatorOrders">Zamówienia do realizacji</a></li>
+                                    <li><a href="{$conf->action_url}moderatorAllOrders">Wszystkie zamowienia</a></li>
+                                    <li><a href="{$conf->action_url}dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+                                </ul>
+                            </li>
+                        {/if}
+                        {if count($conf->roles)>0}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{$conf->action_url}userOrders">Moje zamówienia</a></li>
+                                    <li><a href="{$conf->action_url}accountShow">Ustawienia konta</a></li>
+                                </ul>
+                            </li>   
+                            <li class="active"><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="{$conf->action_url}logout">Wyloguj</a></li>
                             {else}	
                             <li><a class="btn" href="{$conf->action_url}loginShow">SIGN IN / SIGN UP</a></li>
                             {/if}
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div> 
-        
-	<header id="head" class="secondary"></header>
+
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div> 
+
+        <header id="head" class="secondary"></header>
 	<!-- Fixed navbar -->
 
         <!-- container -->

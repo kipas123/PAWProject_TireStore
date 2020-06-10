@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-29 16:44:56
+/* Smarty version 3.1.34-dev-7, created on 2020-06-09 15:47:16
   from 'C:\xampp\htdocs\ProjektPaw\app\views\offerList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ed11fe8e77ec2_19916718',
+  'unifunc' => 'content_5edf92e46d67a8_30756358',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99831f6c7fb74df2ff8e7c64aab19e748dec13aa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\offerList.tpl',
-      1 => 1590763485,
+      1 => 1591710434,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed11fe8e77ec2_19916718 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edf92e46d67a8_30756358 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12921248465ed11fe8de1341_24308745', 'headerOffer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2456970135edf92e4645726_39067260', 'headerOffer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20631927375ed11fe8de9180_39642709', 'offers');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10659046565edf92e464bf12_12875606', 'offers');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "offerTempl.tpl");
 }
 /* {block 'headerOffer'} */
-class Block_12921248465ed11fe8de1341_24308745 extends Smarty_Internal_Block
+class Block_2456970135edf92e4645726_39067260 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'headerOffer' => 
   array (
-    0 => 'Block_12921248465ed11fe8de1341_24308745',
+    0 => 'Block_2456970135edf92e4645726_39067260',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -60,12 +60,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'headerOffer'} */
 /* {block 'offers'} */
-class Block_20631927375ed11fe8de9180_39642709 extends Smarty_Internal_Block
+class Block_10659046565edf92e464bf12_12875606 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'offers' => 
   array (
-    0 => 'Block_20631927375ed11fe8de9180_39642709',
+    0 => 'Block_10659046565edf92e464bf12_12875606',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -103,7 +103,7 @@ offer/<?php echo $_smarty_tpl->tpl_vars['data']->value["idtire"];?>
             <div class="offerInfo"> Brand:<?php echo $_smarty_tpl->tpl_vars['data']->value["brand"];?>
  Model:<?php echo $_smarty_tpl->tpl_vars['data']->value["model"];?>
  Size:<?php echo $_smarty_tpl->tpl_vars['data']->value["size"];?>
- Prize:<?php echo $_smarty_tpl->tpl_vars['data']->value["prize"];?>
+ Prize:<?php echo $_smarty_tpl->tpl_vars['data']->value["price"];?>
 zł</div>
         </div>
         <?php }?>

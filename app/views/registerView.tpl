@@ -33,31 +33,31 @@
                
                     <div class="top-margin">
                         <label for="id_name">imie <span class="text-danger">*</span></label>
-                        <input id="id_name" type="text" name="name" value="{$formUserData->name}" class="form-control">
+                        <input id="id_name" type="text" name="name" value="{$formUser->name}" class="form-control">
                     </div>
                     <div class="top-margin">
                         <label for="id_surname">Nazwisko <span class="text-danger">*</span></label>
-                        <input id="id_surname" type="text" name="surname" value="{$formUserData->surname}" class="form-control">
+                        <input id="id_surname" type="text" name="surname" value="{$formUser->surname}" class="form-control">
                     </div>
                     <div class="top-margin">
                         <label for="id_city">Miasto <span class="text-danger">*</span></label>
-                        <input id="id_city" type="text" name="city" value="{$formUserData->city}" class="form-control">
+                        <input id="id_city" type="text" name="city" value="{$formUser->city}" class="form-control">
                     </div>
                     <div class="top-margin">
                         <label for="id_street">Ulica <span class="text-danger">*</span></label>
-                        <input id="id_street" type="text" name="street" value="{$formUserData->street}" class="form-control">
+                        <input id="id_street" type="text" name="street" value="{$formUser->street}" class="form-control">
                     </div>
                     <div class="top-margin">
                         <label for="id_houseNumber">Numer domu <span class="text-danger">*</span></label>
-                        <input id="id_houseNumber" type="text" name="houseNumber" value="{$formUserData->houseNumber}" class="form-control">
+                        <input id="id_houseNumber" type="text" name="houseNumber" value="{$formUser->houseNumber}" class="form-control">
                     </div>
                     <div class="top-margin">
                         <label for="id_zipcode">Kod pocztowy <span class="text-danger">*</span></label>
-                        <input id="id_zipcode" type="text" name="zipcode" value="{$formUserData->zipcode}" class="form-control">
+                        <input id="id_zipcode" type="text" name="zipcode" value="{$formUser->zipcode}" class="form-control">
                     </div>
                     <div class="top-margin">
                         <label for="id_phoneNumber">Telefon </label>
-                        <input id="id_phoneNumber" type="text" name="phoneNumber" value="{$formUserData->phoneNumber}" class="form-control">
+                        <input id="id_phoneNumber" type="text" name="phoneNumber" value="{$formUser->phoneNumber}" class="form-control">
                     </div>
                     
                     {if $msgs->isMessage()}

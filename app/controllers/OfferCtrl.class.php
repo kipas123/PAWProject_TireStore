@@ -37,9 +37,35 @@ class OfferCtrl {
         $this->choice = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
+       private function getParamsOffer(){
+           try {
+                //odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
+                $record =  App::getDB()->get("tireproduct",["[>]offer" => ["idtire" => "tireproduct_idtire"]],"*", [
+                    "idtire" => $this->choice   
+                ]);
+                //jeśli osoba istnieje to wpisz dane do obiektu formularza
+                $this->formTire->id = $record['idtire'];
+                $this->formTire->tireType = $record['tireType'];
+                $this->formTire->quantity = $record['quantity'];
+                $this->formTire->brand = $record['brand'];
+                $this->formTire->model = $record['model'];
+                $this->formOffer->price = $record['price'];
+                $this->formTire->size = $record['size'];
+                $this->formOffer->imghref = $record['imghref'];
+                $this->formOffer->description = $record['description'];
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+                if (App::getConf()->debug)
+                    Utils::addErrorMessage($e->getMessage());
+            }
+       
+       }
+    
+    
+    
+    
     
         public function action_offerList() {
-        // 1. walidacja id osoby do edycji
         if($this->validateEdit()){
             
             
@@ -77,7 +103,7 @@ class OfferCtrl {
         
         App::getSmarty()->assign('baza', $this->form); // dane formularza dla widoku
 
-        // 3. Wygenerowanie widoku
+        //Wygenerowanie widoku
         $this->generateView("offerList.tpl");
     }
     
@@ -85,45 +111,22 @@ class OfferCtrl {
     public function action_offer() {
                // 1. walidacja id osoby do edycji
         if ($this->validateEdit()) {
-            try {
-                // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                $record =  App::getDB()->get("tireproduct",["[>]offer" => ["idtire" => "tireproduct_idtire"]],"*", [
-                    "idtire" => $this->choice   
-                ]);
-                // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                $this->formTire->id = $record['idtire'];
-                $this->formTire->tireType = $record['tireType'];
-                $this->formTire->quantity = $record['quantity'];
-                $this->formTire->brand = $record['brand'];
-                $this->formTire->model = $record['model'];
-                $this->formTire->prize = $record['prize'];
-                $this->formTire->size = $record['size'];
-                $this->formOffer->imghref = $record['imghref'];
-                $this->formOffer->description = $record['description'];
-            } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
-                if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-            }
+            $this->getParamsOffer();
         }
-
-        // 3. Wygenerowanie widoku
         App::getSmarty()->assign('formTire', $this->formTire); // dane formularza dla widoku
         App::getSmarty()->assign('formOffer', $this->formOffer); // dane formularza dla widoku
 
         $this->generateView("offer.tpl");
     }
 
+    
+    
+    
           
         public function generateView($templ) {
+        App::getSmarty()->assign('idtire', $this->choice); // dane formularza dla widoku
         App::getSmarty()->display($templ);
     }
-    
-    
-    
-    
-    
-    
     
 }
 

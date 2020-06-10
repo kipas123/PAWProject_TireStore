@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-29 10:58:47
+/* Smarty version 3.1.34-dev-7, created on 2020-06-10 18:05:16
   from 'C:\xampp\htdocs\ProjektPaw\app\views\templates\signTempl.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ed0cec757cac2_18918059',
+  'unifunc' => 'content_5ee104bc46ea00_25339046',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0972ed29c6973da5797529535912be307d6ee9df' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\templates\\signTempl.tpl',
-      1 => 1590742725,
+      1 => 1591804807,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed0cec757cac2_18918059 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee104bc46ea00_25339046 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -32,7 +32,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
         <meta name="description" content="">
         <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 
-        <title>Sign in - Progressus Bootstrap template</title>
+        <title>TireStore</title>
 
         <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/images/gt_favicon.png">
@@ -48,6 +48,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 /assets/css/bootstrap-theme.css" media="screen" >
         <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/css/main.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -73,21 +74,50 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 ">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opony <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-/offerList/car">Opony osobwe</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-/offerList/truck">Opony ciezarowe</a></li>
+offerList/car">Opony osobwe</a></li>
+                                <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
                             </ul>
                         </li>
-                        <li class="active"><a href="about.html">O nas</a></li>
-                        <li><a href="contact.html">Kontakt</a></li>	
+                        <?php if (\core\RoleUtils::inRole("admin")) {?>
+                            <li><a href="contact.html">Admin</a></li>
+                            <?php }?>
+                            <?php if (\core\RoleUtils::inRole("moderator")) {?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Moderator <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+moderatorOrders">Zamówienia do realizacji</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+moderatorAllOrders">Wszystkie zamowienia</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+                                </ul>
+                            </li>
+                        <?php }?>
+                        <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+userOrders">Moje zamówienia</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+accountShow">Ustawienia konta</a></li>
+                                </ul>
+                            </li>   
+                            <li class="active"><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
+                            <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+logout">Wyloguj</a></li>
+                            <?php } else { ?>	
                             <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 loginShow">SIGN IN / SIGN UP</a></li>
+                            <?php }?>
 
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -107,11 +137,11 @@ loginShow">SIGN IN / SIGN UP</a></li>
             <div class="row">
 
                 <!-- Article main content -->
-                    <header class="page-header">
-                        <h1 class="page-title">Sign in</h1>
-                    </header>
-                <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8426263325ed0cec7567877_42983925', 'main');
+                <header class="page-header">
+                    <h1 class="page-title">Sign in</h1>
+                </header>
+            <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20858041715ee104bc4597c0_17991600', 'main');
 ?>
 
 
@@ -218,12 +248,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8426263325ed0cec75
 </body>
 </html><?php }
 /* {block 'main'} */
-class Block_8426263325ed0cec7567877_42983925 extends Smarty_Internal_Block
+class Block_20858041715ee104bc4597c0_17991600 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'main' => 
   array (
-    0 => 'Block_8426263325ed0cec7567877_42983925',
+    0 => 'Block_20858041715ee104bc4597c0_17991600',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

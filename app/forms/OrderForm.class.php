@@ -9,14 +9,13 @@
 namespace app\forms;
 
 /**
- * Description of OfferForm
+ * Description of OrderForm
  *
  * @author kipas
  */
-class OfferForm {
-    public $idoffer;
-        public $imghref;
-	public $price;
-	public $description;
-	public $shortdescription;
+class OrderForm {
+        public $idOrder;
+        public $totalPrice;
+        public $orderData;
+	public $status;
 }

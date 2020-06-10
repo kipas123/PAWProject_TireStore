@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 
-        <title>About - Progressus Bootstrap template</title>
+        <title>TireStore</title>
 
         <link rel="shortcut icon" href="{$conf->app_url}/assets/images/gt_favicon.png">
 
@@ -17,6 +17,7 @@
         <!-- Custom styles for our template -->
         <link rel="stylesheet" href="{$conf->app_url}/assets/css/bootstrap-theme.css" media="screen" >
         <link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -44,18 +45,34 @@
                                 <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
                             </ul>
                         </li>
-                        <li class="active"><a href="about.html">O nas</a></li>
-                        <li><a href="contact.html">Kontakt</a></li>
-                         {if \core\RoleUtils::inRole("admin")}
+                        {if \core\RoleUtils::inRole("admin")}
                             <li><a href="contact.html">Admin</a></li>
+                            {/if}
+                            {if \core\RoleUtils::inRole("moderator")}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Moderator <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{$conf->action_url}moderatorOrders">Zamówienia do realizacji</a></li>
+                                    <li><a href="{$conf->action_url}moderatorAllOrders">Wszystkie zamowienia</a></li>
+                                    <li><a href="{$conf->action_url}dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+                                </ul>
+                            </li>
                         {/if}
                         {if count($conf->roles)>0}
-                            <li><a href="{$conf->action_url}accountShow">Konto</a></li>     
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{$conf->action_url}userOrders">Moje zamówienia</a></li>
+                                    <li><a href="{$conf->action_url}accountShow">Ustawienia konta</a></li>
+                                </ul>
+                            </li>   
+                            <li><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="{$conf->action_url}logout">Wyloguj</a></li>
                             {else}	
                             <li><a class="btn" href="{$conf->action_url}loginShow">SIGN IN / SIGN UP</a></li>
                             {/if}
- 
+
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
