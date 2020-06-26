@@ -1,4 +1,4 @@
-{extends file= "offerTempl.tpl" }
+{extends file= "main_frame.tpl" }
 
 {block name=headerOffer}
     <div class="col-xs-8 col-centered"> {* WIELKOSC OKNA *}
@@ -56,21 +56,17 @@
             <hr>
                 <tr>
                     <td>Magazyn:</td>
-                    <td>{$formTire->quantity} szt.</td>
+                    <td>{if {$formTire->quantity} > 0}{$formTire->quantity} szt.{else}Niedostępne{/if}</td>
                 </tr>
             </tbody>
         </table>
-                
-                <div style="margin-top: 50px;clear:both">
+               {if {$formTire->quantity}>0} 
+                <div style="float:right">
                     <form action="{$conf->action_root}offerSummary/{$idtire}" method="post">
-                      <div style=" float: right;">
                     <button class="btn btn-action" type="submit">Kup</button>
-        </div>
-                    <div style=" float: right;">
-                    <input id="sztuki_id" type="number" name="sztuki"  min="1" max="{$formTire->quantity}"  value="1" style="font-size: 20px;float: right; margin-right: 15px; width: 80px;" class="form-control">Ilość szt.
-                    </form>
-                    </div>
                 </div>
+                    <input id="sztuki_id" type="number" name="sztuki"  min="1" max="{$formTire->quantity}"  value="1" style="font-size: 20px;float: right; margin-right: 15px; width: 80px;" class="form-control"><p>ilość sztuk</p>
+                   {/if} 
     </div>
                 
 <div class="col-sm-12 offerText">{$formOffer->description}</div>

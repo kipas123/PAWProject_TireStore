@@ -25,7 +25,9 @@ use core\Validator;
 class AccountCtrl {
 
     private $formUser;
-
+    private $lastPage;
+    private $page;
+    private $search;
     public function __construct() {
         $this->formUser = new UserForm();
         $this->offerForm = new OrderForm();
@@ -86,6 +88,7 @@ class AccountCtrl {
         if ($this->validateAdress()) {
             try {
                 $this->formUser->iduser = SessionUtils::load("iduser", $keep = true);
+                $this->formUser->login = App::getDB()->get("user","login",["iduser" => $this->formUser->iduser]);
                 $this->record = App::getDB()->update("user", [
                     "name" => $this->formUser->name,
                     "surname" => $this->formUser->surname,
@@ -93,7 +96,9 @@ class AccountCtrl {
                     "street" => $this->formUser->street,
                     "housenumber" => $this->formUser->houseNumber,
                     "zipcode" => $this->formUser->zipcode,
-                    "phoneNumber" => $this->formUser->phoneNumber
+                    "phoneNumber" => $this->formUser->phoneNumber,
+                    "lastmodified_by" => $this->formUser->login,
+                    "lastmodified_date" => date("Y-m-d H:i:s")
                         ], [
                     "iduser" => $this->formUser->iduser
                 ]);
@@ -110,13 +115,16 @@ class AccountCtrl {
 
     private function changePasswordValidate() {
         try {
-            $password = ParamUtils::getFromRequest("password");
+            $this->formUser->pass = ParamUtils::getFromRequest("password");
             $this->formUser->iduser = SessionUtils::load("iduser", $keep = true);
-            $this->record = App::getDB()->select("user", "password", [
-                "iduser" => $this->formUser->iduser,
-                "password" => $password
+            $password_hash = App::getDB()->get("user", "password", [
+                "iduser" => $this->formUser->iduser
             ]);
-            if (empty($this->record))
+            $password_check = false;
+           if((password_verify($this->formUser->pass, $password_hash)) == true){
+               $password_check=true;
+           } 
+            if (($password_check)==false)
                 Utils::addErrorMessage('Złe hasło');
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -148,10 +156,10 @@ class AccountCtrl {
 
     public function action_changePassword() {
         if ($this->changePasswordValidate()) {
-
+            $password_hash = password_hash($this->formUser->pass, PASSWORD_DEFAULT);
             try {
                 $this->record = App::getDB()->update("user", [
-                    "password" => $this->formUser->pass
+                    "password" => $password_hash
                         ], [
                     "iduser" => $this->formUser->iduser
                 ]);
@@ -170,9 +178,25 @@ class AccountCtrl {
     
     public function action_userOrders() {
             try {
+                $this->page = ParamUtils::getFromCleanURL(1, false, 'Błędne wywołanie aplikacji');
                 $this->formUser->iduser = SessionUtils::load("iduser", $keep = true);
-                $this->record = App::getDB()->select("order",["[>]tireproduct_has_order" => ["idorder" => "order_idorder"]],"*",[
-                    "user_iduser" => $this->formUser->iduser
+                
+                (int) $count = App::getDB()->count("order", [
+                    'user_iduser' => $this->formUser->iduser
+                ]);
+                $this->lastPage = ceil(($count / 5));
+                if($this->lastPage<1) $this->lastPage = 1;
+                        if ($this->page == null || $this->page > $this->lastPage || $this->page < 1)
+            $this->page = 1;
+                
+                
+                $this->record = App::getDB()->select("order",["[>]tireproduct_has_order" => ["idorder" => "order_idorder"],
+                    "[>]orderstatus" => ["orderstatus_idorderstatus" => "idorderstatus"]],"*",[
+                    "user_iduser" => $this->formUser->iduser,
+                    'LIMIT' => [$this->page * 5 - 5, 5],
+                        "ORDER" =>[ 
+                "orderdata" => "DESC"
+                    ]
                 ]);
                 
                 
@@ -189,6 +213,8 @@ class AccountCtrl {
     
     
     public function generateView($templ) {
+        App::getSmarty()->assign('lastPage', $this->lastPage); // dane formularza dla widoku
+        App::getSmarty()->assign('page', $this->page); // dane formularza dla widoku
         App::getSmarty()->assign('formUser', $this->formUser); // dane formularza dla widoku
         App::getSmarty()->display($templ);
     }

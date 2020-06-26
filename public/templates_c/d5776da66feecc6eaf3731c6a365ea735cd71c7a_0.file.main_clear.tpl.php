@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-26 13:04:09
-  from 'C:\xampp\htdocs\ProjektPaw\app\views\home.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-06-26 13:04:13
+  from 'C:\xampp\htdocs\ProjektPaw\app\views\templates\main_clear.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ef5d629af2963_82280103',
+  'unifunc' => 'content_5ef5d62dc13fe7_24381795',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '23bab8e82f2b9de371fc6663c45751055f469028' => 
+    'd5776da66feecc6eaf3731c6a365ea735cd71c7a' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\home.tpl',
-      1 => 1593169447,
+      0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\templates\\main_clear.tpl',
+      1 => 1593169411,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ef5d629af2963_82280103 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+function content_5ef5d62dc13fe7_24381795 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -133,158 +136,145 @@ loginShow">SIGN IN / SIGN UP</a></li>
         </div> 
 
         <header id="head" class="secondary"></header>
-        <!-- Fixed navbar -->
 
         <!-- container -->
-        <?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
-                                            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
+        <div class="container">
+            <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5782308925ef5d62dbfa4f7_02843655', 'headerContent');
 ?>
-                                                <div class="alert <?php if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>alert-success<?php }?>
-                                                     " role="alert" style="margin-top: 10px;">
-                                                    <?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-
-                                                </div>
-                                            <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                        <?php }?>
-        <div class="row" style="background-color: white; padding:10px;">
-            <br></br><br>
-
-            <div class="col-lg-4 col-md-4">
-
-                <div class="menuTable">
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-offerList/car">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/images/osobowy_2.png" class="img-fluid" alt="Responsive image"> 
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4">
-                <div class="menuTable">
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-offerList/truck">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/images/tir.png" class="img-fluid" alt="Responsive image">
-                    </a>
-                </div>
-            </div>
 
 
-            <div class="col-lg-4 col-md-4">
-                <div class="menuTable">
-                     <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-about">
-                    <img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/images/about_us.png" class="img-fluid" alt="Responsive image">
-                     </a>
-                </div>
+            <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9037455305ef5d62dbff558_38757388', 'main');
+?>
+
+
+            <!-- /Article -->
+
+        </div>
+
+    </div>	<!-- /container -->
+
+
+    <footer id="footer" class="top-space">
+
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Contact</h3>
+                        <div class="widget-body">
+                            <p>+234 23 9873237<br>
+                                <a href="mailto:#">some.email@somewhere.com</a><br>
+                                <br>
+                                234 Hidden Pond Road, Ashland City, TN 37015
+                            </p>	
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Follow me</h3>
+                        <div class="widget-body">
+                            <p class="follow-me-icons clearfix">
+                                <a href=""><i class="fa fa-twitter fa-2"></i></a>
+                                <a href=""><i class="fa fa-dribbble fa-2"></i></a>
+                                <a href=""><i class="fa fa-github fa-2"></i></a>
+                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                            </p>	
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <h3 class="widget-title">Text widget</h3>
+                        <div class="widget-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
+                            <p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
             </div>
         </div>
-        <!-- /container -->
 
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
 
-
-
-
-        <footer id="footer" class="top-space">
-
-            <div class="footer1">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-3 widget">
-                            <h3 class="widget-title">Contact</h3>
-                            <div class="widget-body">
-                                <p>+234 23 9873237<br>
-                                    <a href="mailto:#">some.email@somewhere.com</a><br>
-                                    <br>
-                                    234 Hidden Pond Road, Ashland City, TN 37015
-                                </p>	
-                            </div>
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="#">Home</a> | 
+                                <a href="about.html">About</a> |
+                                <a href="sidebar-right.html">Sidebar</a> |
+                                <a href="contact.html">Contact</a> |
+                                <b><a href="signup.html">Sign up</a></b>
+                            </p>
                         </div>
+                    </div>
 
-                        <div class="col-md-3 widget">
-                            <h3 class="widget-title">Follow me</h3>
-                            <div class="widget-body">
-                                <p class="follow-me-icons clearfix">
-                                    <a href=""><i class="fa fa-twitter fa-2"></i></a>
-                                    <a href=""><i class="fa fa-dribbble fa-2"></i></a>
-                                    <a href=""><i class="fa fa-github fa-2"></i></a>
-                                    <a href=""><i class="fa fa-facebook fa-2"></i></a>
-                                </p>	
-                            </div>
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+                            </p>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 widget">
-                            <h3 class="widget-title">Text widget</h3>
-                            <div class="widget-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-                                <p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
-                            </div>
-                        </div>
-
-                    </div> <!-- /row of widgets -->
-                </div>
+                </div> <!-- /row of widgets -->
             </div>
-
-            <div class="footer2">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-6 widget">
-                            <div class="widget-body">
-                                <p class="simplenav">
-                                    <a href="#">Home</a> | 
-                                    <a href="sidebar-right.html">O nas</a> |
-                                    <a href="contact.html">Kontakt</a> |
-                                    <b><a href="signup.html">Zaloguj</a></b>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 widget">
-                            <div class="widget-body">
-                                <p class="text-right">
-                                    Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
-                                </p>
-                            </div>
-                        </div>
-
-                    </div> <!-- /row of widgets -->
-                </div>
-            </div>
-        </footer>	
+        </div>
+    </footer>	
 
 
 
 
 
-        <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-        <?php echo '<script'; ?>
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <?php echo '<script'; ?>
  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->root_path;?>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/js/headroom.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/js/jQuery.headroom.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/js/template.js"><?php echo '</script'; ?>
 >
-    </body>
+</body>
 </html><?php }
+/* {block 'headerContent'} */
+class Block_5782308925ef5d62dbfa4f7_02843655 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'headerContent' => 
+  array (
+    0 => 'Block_5782308925ef5d62dbfa4f7_02843655',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'headerContent'} */
+/* {block 'main'} */
+class Block_9037455305ef5d62dbff558_38757388 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'main' => 
+  array (
+    0 => 'Block_9037455305ef5d62dbff558_38757388',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'main'} */
 }

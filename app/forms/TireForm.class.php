@@ -15,7 +15,6 @@ namespace app\forms;
 class TireForm {
     	public $idTire;
         public $tireType;
-        public $quantity;
 	public $brand;
 	public $model;
 	public $size;

@@ -18,7 +18,7 @@ class LoginCtrl {
         $this->formUser = new UserForm();
     }
 
-    public function validate() {
+    private function validate() {
         $this->formUser->login = ParamUtils::getFromRequest('login');
         $this->formUser->pass = ParamUtils::getFromRequest('pass');
 
@@ -39,22 +39,33 @@ class LoginCtrl {
             return false;
         try {
 
-            $record = App::getDB()->get("user", "*", [
-                "login" => $this->formUser->login,
-                "password" => $this->formUser->pass
+            $password_hash = App::getDB()->get("user", "password", [
+                "login" => $this->formUser->login
             ]);
+            
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
         }
-        if (!empty($record)) {
+        if (empty($password_hash)){
+            Utils::addErrorMessage('Niepoprawny login lub hasło!');
+            return false;
+        } 
+        $password_check = false;
+           if((password_verify($this->formUser->pass, $password_hash)) == true){
+               $password_check=true;
+           } 
+        
+        if ($password_check) {
             try {
 
-                $record = App::getDB()->get("user", [
-                    "role",
+                $record = App::getDB()->get("user",[
+                    "[>]roles(role)" => ["roles_idroles" => "idroles"]
+                ], [
+                    "role.name(role_name)",
                     "iduser"], [
                     "login" => $this->formUser->login,
                 ]);
-                $this->formUser->role = $record["role"];
+                $this->formUser->role = $record["role_name"];
                 $this->formUser->iduser = $record["iduser"];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');

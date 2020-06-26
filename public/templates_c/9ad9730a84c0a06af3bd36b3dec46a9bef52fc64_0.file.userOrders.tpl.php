@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-10 18:02:23
+/* Smarty version 3.1.34-dev-7, created on 2020-06-25 23:18:49
   from 'C:\xampp\htdocs\ProjektPaw\app\views\userOrders.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ee1040fec8f99_08450876',
+  'unifunc' => 'content_5ef514b9c83a30_66460632',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9ad9730a84c0a06af3bd36b3dec46a9bef52fc64' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\userOrders.tpl',
-      1 => 1591804319,
+      1 => 1593119927,
       2 => 'file',
     ),
   ),
@@ -20,37 +20,53 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee1040fec8f99_08450876 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef514b9c83a30_66460632 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1852817825ee1040fe452d0_61118241', 'headerOffer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15700754145ef514b9babbb2_32288752', 'headerOffer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16834026095ee1040fe4b1b9_57783519', 'offers');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9997435415ef514b9be3584_49521132', 'offers');
 ?>
 
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "offerTempl.tpl");
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main_frame.tpl");
 }
 /* {block 'headerOffer'} */
-class Block_1852817825ee1040fe452d0_61118241 extends Smarty_Internal_Block
+class Block_15700754145ef514b9babbb2_32288752 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'headerOffer' => 
   array (
-    0 => 'Block_1852817825ee1040fe452d0_61118241',
+    0 => 'Block_15700754145ef514b9babbb2_32288752',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
     
-     <div class="col-xs-8 col-centered">     <header class="page-header">
+     <div class="col-xs-8 col-centered"> 
+    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
+?>
+        <div class="alert <?php if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>alert-success<?php }?>
+             <?php if ($_smarty_tpl->tpl_vars['msg']->value->isWarning()) {?>alert-warning<?php }?>
+             <?php if ($_smarty_tpl->tpl_vars['msg']->value->isError()) {?>alert-danger<?php }?>" role="alert">
+            <?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
+
+        </div>
+    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    <header class="page-header">
         <h1 class="page-title">Twoje zamowienia:</h1>
     </header>
 
@@ -60,24 +76,18 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'headerOffer'} */
 /* {block 'offers'} */
-class Block_16834026095ee1040fe4b1b9_57783519 extends Smarty_Internal_Block
+class Block_9997435415ef514b9be3584_49521132 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'offers' => 
   array (
-    0 => 'Block_16834026095ee1040fe4b1b9_57783519',
+    0 => 'Block_9997435415ef514b9be3584_49521132',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
-    <div class="col-sm-4" style=" margin-bottom: 30px;">
-        <input class="form-control" type="text" placeholder="Name">
-    </div>
-    <div class="col-sm-2" style="margin-bottom:30px;">
-        <button class="btn btn-action" type="submit">Filtruj</button>
-    </div>
     <div class="col-sm-12" style="overflow-x:auto;">
 <table class="table">
   <thead class="thead-dark">
@@ -101,7 +111,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['data']->value) {
 $_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration']++;
 ?>
     <tr>
-      <th scope="row"><?php echo (isset($_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration'] : null);?>
+      <th scope="row"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['page']->value*5;
+$_prefixVariable1 = ob_get_clean();
+echo (isset($_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_foo']->value['iteration'] : null)+$_prefixVariable1-5;?>
 </th>
       <td><?php echo $_smarty_tpl->tpl_vars['data']->value["idorder"];?>
 </td>
@@ -116,9 +129,16 @@ zł</td>
        <td><?php echo $_smarty_tpl->tpl_vars['data']->value["orderdata"];?>
 </td>
        <td><?php ob_start();
-echo $_smarty_tpl->tpl_vars['data']->value["status"];
-$_prefixVariable1 = ob_get_clean();
-if ($_prefixVariable1 == 0) {?><span style=" color: #ff3333;">W trakcie realizacji</span><?php } else { ?><span style=" color: #009933;">Zrealizowany</span><?php }?></td>
+echo $_smarty_tpl->tpl_vars['data']->value["orderstatus_idorderstatus"];
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2 == 2) {?><span style="color: red;"><?php echo $_smarty_tpl->tpl_vars['data']->value["name"];?>
+</span><?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['data']->value["orderstatus_idorderstatus"];
+$_prefixVariable3 = ob_get_clean();
+if ($_prefixVariable3 == 1) {?> <span style="color: green;"><?php echo $_smarty_tpl->tpl_vars['data']->value["name"];?>
+</span><?php } else { ?> <span style="color: #0066ff;"><?php echo $_smarty_tpl->tpl_vars['data']->value["name"];?>
+</span><?php }}?></td>
     </tr>
     <?php
 }
@@ -126,27 +146,29 @@ if ($_prefixVariable1 == 0) {?><span style=" color: #ff3333;">W trakcie realizac
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   </tbody>
 </table>
+  <div style="clear:both; margin: 0 auto; text-align: center; font-size: 25px;"><?php echo $_smarty_tpl->tpl_vars['page']->value;?>
+ z <?php echo $_smarty_tpl->tpl_vars['lastPage']->value;?>
+</div>
+  <ul class="pager">
+    <?php ob_start();
+echo $_smarty_tpl->tpl_vars['page']->value;
+$_prefixVariable4 = ob_get_clean();
+if ($_prefixVariable4 > 1) {?><li class="previous"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+userOrders/<?php echo $_smarty_tpl->tpl_vars['page']->value-1;?>
+">&larr; Poprzednia</a></li><?php }?>
+  <?php ob_start();
+echo $_smarty_tpl->tpl_vars['page']->value;
+$_prefixVariable5 = ob_get_clean();
+ob_start();
+echo $_smarty_tpl->tpl_vars['lastPage']->value;
+$_prefixVariable6 = ob_get_clean();
+if ($_prefixVariable5 < $_prefixVariable6) {?><li class="next"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+userOrders/<?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
+">Następna &rarr;</a></li><?php }?>
+</ul>
     </div>
 
 
-
-
-
-    <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-?>
-        <div class="alert <?php if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>alert-success<?php }?>
-             <?php if ($_smarty_tpl->tpl_vars['msg']->value->isWarning()) {?>alert-warning<?php }?>
-             <?php if ($_smarty_tpl->tpl_vars['msg']->value->isError()) {?>alert-danger<?php }?>" role="alert">
-            <?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-
-        </div>
-    <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <?php
 }

@@ -11,12 +11,8 @@ namespace app\controllers;
 use core\App;
 use core\SessionUtils;
 use app\forms\UserForm;
-use app\forms\OrderForm;
-use app\controllers\RegisterCtrl;
 use core\ParamUtils;
 use core\Utils;
-use core\Validator;
-use app\controllers\AccountCtrl;
 use app\forms\TireForm;
 use app\forms\OfferForm;
 
@@ -71,12 +67,13 @@ class BuyCtrl {
     private function getParamsOffer() {
         try {
             //odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-            $record = App::getDB()->get("tireproduct", ["[>]offer" => ["idtire" => "tireproduct_idtire"]], "*", [
+            $record = App::getDB()->get("tireproduct", ["[>]offer" => ["idtire" => "tireproduct_idtire"],
+                "[>]tiretype" => ["tiretype_idtiretype" => "idtiretype"]], "*", [
                 "idtire" => $this->choice
             ]);
             // jeśli osoba istnieje to wpisz dane do obiektu formularza
             $this->formTire->id = $record['idtire'];
-            $this->formTire->tireType = $record['tireType'];
+            $this->formTire->tireType = $record['name'];
             $this->formTire->quantity = $record['quantity'];
             $this->formTire->brand = $record['brand'];
             $this->formTire->model = $record['model'];
@@ -123,13 +120,13 @@ class BuyCtrl {
                $this->formUser->iduser = SessionUtils::load("iduser", $keep = true);
                $sumPrice = SessionUtils::load("sumPrice", $keep = false);
                $sztuki = SessionUtils::load("sztuki", $keep = false);
-            //odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
+
             
                 $record = App::getDB()->insert("order",[
                     "quantity" => $sztuki,
                     "totalprice" => $sumPrice,
                     "orderdata" => date("Y-m-d H:i:s"),
-                    "status" => 0,
+                    "orderstatus_idorderstatus" => 3,
                     "user_iduser" => $this->formUser->iduser,
                 ]);
                 $idorder = App::getDB()->id();
@@ -138,12 +135,21 @@ class BuyCtrl {
                     "tireproduct_idtire" => $this->choice,
                     "order_idorder" => $idorder,
                 ]);
+                $quantity = App::getDB()->get("offer","quantity",["tireproduct_idtire" => $this->choice]);
+                $quantity_new = $quantity - $sztuki;
+                App::getDB()->update("offer",[
+                    "quantity" => $quantity_new,
+                ],[ "tireproduct_idtire" => $this->choice]);
+                
+                
                 Utils::addInfoMessage("Kupiono produkt!", $index = null);
-                $this->generateView("home.tpl");
+                App::getRouter()->forwardTo("userOrders");
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());
+            $this->generateView("offerSummary.tpl");
+                
         }
     }
     

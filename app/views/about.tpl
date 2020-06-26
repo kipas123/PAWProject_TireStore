@@ -1,73 +1,13 @@
-<?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-26 13:00:58
-  from 'C:\xampp\htdocs\ProjektPaw\app\views\about.tpl' */
+{extends file= "main_frame.tpl" }
 
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ef5d56af0cdb4_10013815',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '854e8333b7d450c4a7248dd180fb4e7588995763' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\about.tpl',
-      1 => 1593169255,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5ef5d56af0cdb4_10013815 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_loadInheritance();
-$_smarty_tpl->inheritance->init($_smarty_tpl, true);
-?>
+{block name=headerOffer}
+
+    <div class="col-xs-8 col-centered"> {* WIELKOSC OKNA *}
 
 
-<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15224406135ef5d56af02c27_70431647', 'headerOffer');
-?>
+    {/block}
 
-
-    <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10465834585ef5d56af08ef9_23638512', 'offers');
-?>
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main_frame.tpl");
-}
-/* {block 'headerOffer'} */
-class Block_15224406135ef5d56af02c27_70431647 extends Smarty_Internal_Block
-{
-public $subBlocks = array (
-  'headerOffer' => 
-  array (
-    0 => 'Block_15224406135ef5d56af02c27_70431647',
-  ),
-);
-public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
-?>
-
-
-    <div class="col-xs-8 col-centered"> 
-
-    <?php
-}
-}
-/* {/block 'headerOffer'} */
-/* {block 'offers'} */
-class Block_10465834585ef5d56af08ef9_23638512 extends Smarty_Internal_Block
-{
-public $subBlocks = array (
-  'offers' => 
-  array (
-    0 => 'Block_10465834585ef5d56af08ef9_23638512',
-  ),
-);
-public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
-?>
-
+    {block name=offers}
         <article class="col-sm-10 maincontent col-centered">
 				<header class="page-header">
 					<h1 class="page-title">About us</h1>
@@ -85,8 +25,4 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 				
 			</article>
 
-    <?php
-}
-}
-/* {/block 'offers'} */
-}
+    {/block}

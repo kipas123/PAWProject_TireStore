@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-10 18:05:16
+/* Smarty version 3.1.34-dev-7, created on 2020-06-11 23:51:28
   from 'C:\xampp\htdocs\ProjektPaw\app\views\templates\signTempl.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ee104bc46ea00_25339046',
+  'unifunc' => 'content_5ee2a7606af8f5_44691430',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0972ed29c6973da5797529535912be307d6ee9df' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\templates\\signTempl.tpl',
-      1 => 1591804807,
+      1 => 1591911967,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee104bc46ea00_25339046 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee2a7606af8f5_44691430 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -81,7 +81,8 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 offerList/car">Opony osobwe</a></li>
-                                <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+offerList/truck">Opony ciezarowe</a></li>
                             </ul>
                         </li>
                         <?php if (\core\RoleUtils::inRole("admin")) {?>
@@ -96,12 +97,14 @@ moderatorOrders">Zamówienia do realizacji</a></li>
                                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 moderatorAllOrders">Wszystkie zamowienia</a></li>
                                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+addProductView">Dodaj Produkt/Ogłoszenie</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+moderatorAllProductsView">Zarządzaj produktami</a></li>
                                 </ul>
                             </li>
                         <?php }?>
                         <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
@@ -110,11 +113,13 @@ userOrders">Moje zamówienia</a></li>
 accountShow">Ustawienia konta</a></li>
                                 </ul>
                             </li>   
-                            <li class="active"><a href="about.html">O nas</a></li>
+                            <li><a href="about.html">O nas</a></li>
                             <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 logout">Wyloguj</a></li>
-                            <?php } else { ?>	
+                            <?php } else { ?>
+                            <li><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 loginShow">SIGN IN / SIGN UP</a></li>
                             <?php }?>
@@ -129,19 +134,13 @@ loginShow">SIGN IN / SIGN UP</a></li>
         <!-- container -->
         <div class="container">
 
-            <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">User access</li>
-            </ol>
-
-            <div class="row">
-
-                <!-- Article main content -->
-                <header class="page-header">
-                    <h1 class="page-title">Sign in</h1>
-                </header>
+            
             <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20858041715ee104bc4597c0_17991600', 'main');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14246745025ee2a760694e03_20164068', 'headerOffer');
+?>
+ 
+            <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17671228015ee2a76069a621_53369879', 'main');
 ?>
 
 
@@ -247,13 +246,26 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20858041715ee104bc
 >
 </body>
 </html><?php }
+/* {block 'headerOffer'} */
+class Block_14246745025ee2a760694e03_20164068 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'headerOffer' => 
+  array (
+    0 => 'Block_14246745025ee2a760694e03_20164068',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'headerOffer'} */
 /* {block 'main'} */
-class Block_20858041715ee104bc4597c0_17991600 extends Smarty_Internal_Block
+class Block_17671228015ee2a76069a621_53369879 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'main' => 
   array (
-    0 => 'Block_20858041715ee104bc4597c0_17991600',
+    0 => 'Block_17671228015ee2a76069a621_53369879',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

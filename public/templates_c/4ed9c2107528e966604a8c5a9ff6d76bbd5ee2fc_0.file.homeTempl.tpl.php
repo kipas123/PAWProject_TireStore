@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-10 18:02:00
+/* Smarty version 3.1.34-dev-7, created on 2020-06-11 23:15:19
   from 'C:\xampp\htdocs\ProjektPaw\app\views\templates\homeTempl.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ee103f8717d75_79485802',
+  'unifunc' => 'content_5ee29ee744a170_14088049',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ed9c2107528e966604a8c5a9ff6d76bbd5ee2fc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\templates\\homeTempl.tpl',
-      1 => 1591804847,
+      1 => 1591910117,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee103f8717d75_79485802 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee29ee744a170_14088049 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -78,7 +78,8 @@ function content_5ee103f8717d75_79485802 (Smarty_Internal_Template $_smarty_tpl)
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 offerList/car">Opony osobwe</a></li>
-                                <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+offerList/truck">Opony ciezarowe</a></li>
                             </ul>
                         </li>
                         <?php if (\core\RoleUtils::inRole("admin")) {?>
@@ -93,12 +94,14 @@ moderatorOrders">Zamówienia do realizacji</a></li>
                                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 moderatorAllOrders">Wszystkie zamowienia</a></li>
                                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+addProductView">Dodaj Produkt/Ogłoszenie</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+moderatorAllProductsView">Zarządzaj produktami</a></li>
                                 </ul>
                             </li>
                         <?php }?>
                         <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
@@ -111,7 +114,9 @@ accountShow">Ustawienia konta</a></li>
                             <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 logout">Wyloguj</a></li>
-                            <?php } else { ?>	
+                            <?php } else { ?>
+                            <li><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 loginShow">SIGN IN / SIGN UP</a></li>
                             <?php }?>

@@ -42,7 +42,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opony <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{$conf->action_url}offerList/car">Opony osobwe</a></li>
-                                <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
+                                <li><a href="{$conf->action_url}offerList/truck">Opony ciezarowe</a></li>
                             </ul>
                         </li>
                         {if \core\RoleUtils::inRole("admin")}
@@ -52,14 +52,15 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Moderator <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{$conf->action_url}moderatorOrders">Zamówienia do realizacji</a></li>
-                                    <li><a href="{$conf->action_url}moderatorAllOrders">Wszystkie zamowienia</a></li>
-                                    <li><a href="{$conf->action_url}dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+                                    <li><a href="{$conf->action_url}unRealizedOrders">Zamówienia do realizacji</a></li>
+                                    <li><a href="{$conf->action_url}allOrders">Wszystkie zamowienia</a></li>
+                                    <li><a href="{$conf->action_url}addProductView">Dodaj Produkt/Ogłoszenie</a></li>
+                                    <li><a href="{$conf->action_url}allProductsView">Zarządzaj produktami</a></li>
                                 </ul>
                             </li>
                         {/if}
                         {if count($conf->roles)>0}
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{$conf->action_url}userOrders">Moje zamówienia</a></li>
@@ -69,7 +70,9 @@
                             <li><a href="about.html">O nas</a></li>
                             <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="{$conf->action_url}logout">Wyloguj</a></li>
-                            {else}	
+                            {else}
+                            <li><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="{$conf->action_url}loginShow">SIGN IN / SIGN UP</a></li>
                             {/if}
 
@@ -79,51 +82,13 @@
         </div> 
 
         <header id="head" class="secondary"></header>
-        <!-- Fixed navbar -->
-
-        <!-- container -->
-        {if $msgs->isMessage()}
-                                            {foreach $msgs->getMessages() as $msg}
-                                                <div class="alert {if $msg->isInfo()}alert-success{/if}
-                                                     " role="alert" style="margin-top: 10px;">
-                                                    {$msg->text}
-                                                </div>
-                                            {/foreach}
-                                        {/if}
-        <div class="row" style="background-color: white; padding:10px;">
-            <br></br><br>
-
-            <div class="col-lg-4 col-md-4">
-
-                <div class="menuTable">
-                    <a href="{$conf->action_url}offerList/car">
-                        <img src="{$conf->app_url}/assets/images/osobowy_2.png" class="img-fluid" alt="Responsive image"> 
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4">
-                <div class="menuTable">
-                    <a href="{$conf->action_url}offerList/truck">
-                        <img src="{$conf->app_url}/assets/images/tir.png" class="img-fluid" alt="Responsive image">
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="col-lg-4 col-md-4">
-                <div class="menuTable">
-                    <img src="{$conf->app_url}/assets/images/about_us.png" class="img-fluid" alt="Responsive image">
-                </div>
-            </div>
-        </div>
-        <!-- /container -->
-
-
-
-
-
-        <footer id="footer" class="top-space">
+        {block name=content}{/block}
+    
+    
+    
+    
+    
+     <footer id="footer" class="top-space">
 
             <div class="footer1">
                 <div class="container">

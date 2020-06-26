@@ -14,9 +14,11 @@ namespace app\forms;
  * @author kipas
  */
 class OfferForm {
-    public $idoffer;
+        public $tireproduct_idtire;
         public $imghref;
 	public $price;
 	public $description;
 	public $shortdescription;
+        public $active;
+        public $quantity;
 }

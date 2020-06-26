@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-09 15:07:47
+/* Smarty version 3.1.34-dev-7, created on 2020-06-25 10:29:57
   from 'C:\xampp\htdocs\ProjektPaw\app\views\adressEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5edf89a3d95674_46630852',
+  'unifunc' => 'content_5ef4608556bf71_82341074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '50f03b3f79aa7dd824880395f945a126b5965d2f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\adressEdit.tpl',
-      1 => 1591708065,
+      1 => 1593073794,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,59 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edf89a3d95674_46630852 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef4608556bf71_82341074 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
+
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6878124315edf89a3d24c76_54699140', 'main');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19973453455ef460854ddca4_94136502', 'headerContent');
+?>
+
+
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4716059195ef460854ee154_08723280', 'main');
 ?>
                              
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "signTempl.tpl");
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main_clear.tpl");
 }
+/* {block 'headerContent'} */
+class Block_19973453455ef460854ddca4_94136502 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'headerContent' => 
+  array (
+    0 => 'Block_19973453455ef460854ddca4_94136502',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+                <div class="row">
+
+                <!-- Article main content -->
+                <header class="page-header">
+                                    <div style="text-align: left; clear:both;">
+                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+accountShow/">
+                    <button class="btn btn-action" type="submit"><--- Wróć</button>
+                </a></div>
+                </header>
+                
+<?php
+}
+}
+/* {/block 'headerContent'} */
 /* {block 'main'} */
-class Block_6878124315edf89a3d24c76_54699140 extends Smarty_Internal_Block
+class Block_4716059195ef460854ee154_08723280 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'main' => 
   array (
-    0 => 'Block_6878124315edf89a3d24c76_54699140',
+    0 => 'Block_4716059195ef460854ee154_08723280',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

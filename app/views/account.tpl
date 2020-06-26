@@ -1,4 +1,4 @@
-{extends file= "offerTempl.tpl" }
+{extends file= "main_frame.tpl" }
 
 {block name=headerOffer}
     <div class="col-xs-10 col-centered"> {* WIELKOSC OKNA *}

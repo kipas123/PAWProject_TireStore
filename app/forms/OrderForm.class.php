@@ -18,4 +18,5 @@ class OrderForm {
         public $totalPrice;
         public $orderData;
 	public $status;
+        public $quantity;
 }

@@ -1,11 +1,27 @@
-{extends file= "signTempl.tpl" }
+{extends file= "main_clear.tpl" }
+
+{block name= headerContent}
+    {*
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">User access</li>
+            </ol>
+*}
+            <div class="row">
+
+                <!-- Article main content -->
+                <header class="page-header">
+                    <h1 class="page-title">Rejestracja</h1>
+                </header>
+{/block}
+
+
 
 {block name = main}
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h3 class="thin text-center">Register a new account</h3>
-                <p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signin.html">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
+                <h3 class="thin text-center">Rejestracja</h3>
                 <hr>
 
                 <form action="{$conf->action_root}register" method="post">
@@ -76,7 +92,7 @@
                         <div class="col-lg-8">
                             <label class="checkbox">
                                 <input type="checkbox"> 
-                                I've read the <a href="page_terms.html">Terms and Conditions</a>
+                                Zapoznałem się z <a href="page_terms.html">regulaminem</a>
                             </label>                        
                         </div>
                         <div class="col-lg-4 text-right">

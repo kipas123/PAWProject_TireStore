@@ -18,5 +18,9 @@ class HelloCtrl {
         App::getSmarty()->display("home.tpl");
         
     }
-    
+     public function action_about() {
+		      
+        App::getSmarty()->display("about.tpl");
+        
+    }
 }

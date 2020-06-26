@@ -42,34 +42,40 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opony <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{$conf->action_url}offerList/car">Opony osobwe</a></li>
-                                <li><a href="sidebar-right.html">Opony ciezarowe</a></li>
+                                <li><a href="{$conf->action_url}offerList/truck">Opony ciezarowe</a></li>
                             </ul>
                         </li>
                         {if \core\RoleUtils::inRole("admin")}
-                            <li><a href="contact.html">Admin</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{$conf->action_url}userManagement">Użytkownicy</a></li>
+                                </ul>
+                            </li>
                             {/if}
-                            {if \core\RoleUtils::inRole("moderator")}
+                            {if \core\RoleUtils::inRole("moderator") || \core\RoleUtils::inRole("admin")}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Moderator <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{$conf->action_url}moderatorOrders">Zamówienia do realizacji</a></li>
-                                    <li><a href="{$conf->action_url}moderatorAllOrders">Wszystkie zamowienia</a></li>
-                                    <li><a href="{$conf->action_url}dodajOgloszenie">Dodaj Produkt/Ogłoszenie</a></li>
+                                    <li><a href="{$conf->action_url}unRealizedOrders">Zamówienia do realizacji</a></li>
+                                    <li><a href="{$conf->action_url}allOrders">Wszystkie zamowienia</a></li>
+                                    <li><a href="{$conf->action_url}addProductView">Dodaj Produkt/Ogłoszenie</a></li>
+                                    <li><a href="{$conf->action_url}allProductsView">Zarządzaj produktami</a></li>
                                 </ul>
                             </li>
                         {/if}
                         {if count($conf->roles)>0}
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konto <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{$conf->action_url}userOrders">Moje zamówienia</a></li>
                                     <li><a href="{$conf->action_url}accountShow">Ustawienia konta</a></li>
                                 </ul>
                             </li>   
-                            <li class="active"><a href="about.html">O nas</a></li>
-                            <li><a href="contact.html">Kontakt</a></li>
+                            <li><a href="{$conf->action_url}about">O nas</a></li>
                             <li><a class="btn" href="{$conf->action_url}logout">Wyloguj</a></li>
-                            {else}	
+                            {else}
+                            <li><a href="{$conf->action_url}about">O nas</a></li>
                             <li><a class="btn" href="{$conf->action_url}loginShow">SIGN IN / SIGN UP</a></li>
                             {/if}
 

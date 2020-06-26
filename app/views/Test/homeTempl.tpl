@@ -46,21 +46,16 @@
                             </ul>
                         </li>
                         {if \core\RoleUtils::inRole("admin")}
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{$conf->action_url}userManagement">Użytkownicy</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="contact.html">Admin</a></li>
                             {/if}
-                            {if \core\RoleUtils::inRole("moderator") || \core\RoleUtils::inRole("admin")}
+                            {if \core\RoleUtils::inRole("moderator")}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Moderator <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{$conf->action_url}unRealizedOrders">Zamówienia do realizacji</a></li>
-                                    <li><a href="{$conf->action_url}allOrders">Wszystkie zamowienia</a></li>
+                                    <li><a href="{$conf->action_url}moderatorOrders">Zamówienia do realizacji</a></li>
+                                    <li><a href="{$conf->action_url}moderatorAllOrders">Wszystkie zamowienia</a></li>
                                     <li><a href="{$conf->action_url}addProductView">Dodaj Produkt/Ogłoszenie</a></li>
-                                    <li><a href="{$conf->action_url}allProductsView">Zarządzaj produktami</a></li>
+                                    <li><a href="{$conf->action_url}moderatorAllProductsView">Zarządzaj produktami</a></li>
                                 </ul>
                             </li>
                         {/if}
@@ -72,10 +67,12 @@
                                     <li><a href="{$conf->action_url}accountShow">Ustawienia konta</a></li>
                                 </ul>
                             </li>   
-                            <li><a href="{$conf->action_url}about">O nas</a></li>
+                            <li><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="{$conf->action_url}logout">Wyloguj</a></li>
                             {else}
-                            <li><a href="{$conf->action_url}about">O nas</a></li>
+                            <li><a href="about.html">O nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
                             <li><a class="btn" href="{$conf->action_url}loginShow">SIGN IN / SIGN UP</a></li>
                             {/if}
 
@@ -119,9 +116,7 @@
 
             <div class="col-lg-4 col-md-4">
                 <div class="menuTable">
-                     <a href="{$conf->action_url}about">
                     <img src="{$conf->app_url}/assets/images/about_us.png" class="img-fluid" alt="Responsive image">
-                     </a>
                 </div>
             </div>
         </div>

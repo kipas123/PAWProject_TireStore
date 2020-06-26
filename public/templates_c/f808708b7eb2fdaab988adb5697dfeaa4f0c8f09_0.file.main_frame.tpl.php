@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-26 13:04:09
-  from 'C:\xampp\htdocs\ProjektPaw\app\views\home.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-06-26 13:04:10
+  from 'C:\xampp\htdocs\ProjektPaw\app\views\templates\main_frame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ef5d629af2963_82280103',
+  'unifunc' => 'content_5ef5d62a8ed6f1_88277435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '23bab8e82f2b9de371fc6663c45751055f469028' => 
+    'f808708b7eb2fdaab988adb5697dfeaa4f0c8f09' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\home.tpl',
-      1 => 1593169447,
+      0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\templates\\main_frame.tpl',
+      1 => 1593169404,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ef5d629af2963_82280103 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+function content_5ef5d62a8ed6f1_88277435 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -133,66 +136,34 @@ loginShow">SIGN IN / SIGN UP</a></li>
         </div> 
 
         <header id="head" class="secondary"></header>
-        <!-- Fixed navbar -->
+	<!-- Fixed navbar -->
 
         <!-- container -->
-        <?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
-                                            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-?>
-                                                <div class="alert <?php if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>alert-success<?php }?>
-                                                     " role="alert" style="margin-top: 10px;">
-                                                    <?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-
-                                                </div>
-                                            <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                        <?php }?>
         <div class="row" style="background-color: white; padding:10px;">
-            <br></br><br>
-
-            <div class="col-lg-4 col-md-4">
-
-                <div class="menuTable">
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-offerList/car">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/images/osobowy_2.png" class="img-fluid" alt="Responsive image"> 
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4">
-                <div class="menuTable">
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-offerList/truck">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/images/tir.png" class="img-fluid" alt="Responsive image">
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="col-lg-4 col-md-4">
-                <div class="menuTable">
-                     <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-about">
-                    <img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/images/about_us.png" class="img-fluid" alt="Responsive image">
-                     </a>
-                </div>
-            </div>
+            
+           
+                
+         <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3719585235ef5d62a8ccfc9_43528514', 'headerOffer');
+?>
+ 
+         <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4933388535ef5d62a8d2143_90249818', 'offers');
+?>
+           
+                    
+                
+            
+            
+            
         </div>
+</div>
         <!-- /container -->
 
 
-
-
-
+        
+        
+        
         <footer id="footer" class="top-space">
 
             <div class="footer1">
@@ -240,12 +211,13 @@ about">
 
                         <div class="col-md-6 widget">
                             <div class="widget-body">
-                                <p class="simplenav">
-                                    <a href="#">Home</a> | 
-                                    <a href="sidebar-right.html">O nas</a> |
-                                    <a href="contact.html">Kontakt</a> |
-                                    <b><a href="signup.html">Zaloguj</a></b>
-                                </p>
+                               <p class="simplenav">
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+">Home</a> | 
+				<a href="sidebar-right.html">O nas</a> |
+				<a href="contact.html">Kontakt</a> |
+				<b><a href="signup.html">Zaloguj</a></b>
+				</p>
                             </div>
                         </div>
 
@@ -287,4 +259,30 @@ about">
 >
     </body>
 </html><?php }
+/* {block 'headerOffer'} */
+class Block_3719585235ef5d62a8ccfc9_43528514 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'headerOffer' => 
+  array (
+    0 => 'Block_3719585235ef5d62a8ccfc9_43528514',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'headerOffer'} */
+/* {block 'offers'} */
+class Block_4933388535ef5d62a8d2143_90249818 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'offers' => 
+  array (
+    0 => 'Block_4933388535ef5d62a8d2143_90249818',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'offers'} */
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-09 14:57:21
+/* Smarty version 3.1.34-dev-7, created on 2020-06-25 23:22:55
   from 'C:\xampp\htdocs\ProjektPaw\app\views\loginView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5edf8731bba862_07984154',
+  'unifunc' => 'content_5ef515afad1521_76042947',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '46983363d6c3a690afbf033bcc842e929687bba1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\loginView.tpl',
-      1 => 1591707438,
+      1 => 1593120172,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,55 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edf8731bba862_07984154 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef515afad1521_76042947 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15474438235edf8731b6c599_08601465', 'main');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15461144025ef515afa7d638_50888087', 'headerContent');
 ?>
-                                    <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "signTempl.tpl");
+
+
+
+
+
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17892103375ef515afa83953_01018497', 'main');
+?>
+                                    <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main_clear.tpl");
 }
+/* {block 'headerContent'} */
+class Block_15461144025ef515afa7d638_50888087 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'headerContent' => 
+  array (
+    0 => 'Block_15461144025ef515afa7d638_50888087',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+                <div class="row">
+
+                <!-- Article main content -->
+                <header class="page-header">
+                    <h1 class="page-title">Logowanie</h1>
+                </header>
+<?php
+}
+}
+/* {/block 'headerContent'} */
 /* {block 'main'} */
-class Block_15474438235edf8731b6c599_08601465 extends Smarty_Internal_Block
+class Block_17892103375ef515afa83953_01018497 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'main' => 
   array (
-    0 => 'Block_15474438235edf8731b6c599_08601465',
+    0 => 'Block_17892103375ef515afa83953_01018497',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -46,9 +77,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h3 class="thin text-center">Zaloguj się do konta</h3>
-                                <p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-registerShow">Register</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
+                                <h3 class="thin text-center">Logowanie</h3>
+                                <p class="text-center text-muted">Jeżeli nie masz konta <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+registerShow">Zarejestruj</a> się. </p>
                                 <hr>
 
                                 <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>

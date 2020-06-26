@@ -1,4 +1,25 @@
-{extends file= "signTempl.tpl" }
+{extends file= "main_clear.tpl" }
+
+
+{block name= headerContent}
+    {*
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">User access</li>
+            </ol>
+*}
+            <div class="row">
+
+                <!-- Article main content -->
+                <header class="page-header">
+                                    <div style="text-align: left; clear:both;">
+                <a href="{$conf->action_url}accountShow/">
+                    <button class="btn btn-action" type="submit"><--- Wróć</button>
+                </a></div>
+                </header>
+                
+{/block}
+
 
 {block name = main}
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">

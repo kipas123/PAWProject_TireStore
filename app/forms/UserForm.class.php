@@ -14,5 +14,8 @@ class UserForm {
         public $houseNumber;
         public $zipcode;
         public $phoneNumber;
-        public $validationStatus;
+        public $created_by;
+        public $created_date;
+        public $modified_by;
+        public $lastmodified_date;
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-09 15:51:32
+/* Smarty version 3.1.34-dev-7, created on 2020-06-26 01:03:27
   from 'C:\xampp\htdocs\ProjektPaw\app\views\offer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5edf93e4a5ae07_73450803',
+  'unifunc' => 'content_5ef52d3fe42046_33844737',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c4e83e530a192860125e53509bb1bb8afd9d3fa9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ProjektPaw\\app\\views\\offer.tpl',
-      1 => 1591710687,
+      1 => 1593126118,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edf93e4a5ae07_73450803 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef52d3fe42046_33844737 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8405466535edf93e49a7965_50789066', 'headerOffer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_606064505ef52d3fd7e355_19154654', 'headerOffer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19580239065edf93e49e5d17_58781906', 'offers');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7191285635ef52d3fdb9b82_15227429', 'offers');
 ?>
 
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "offerTempl.tpl");
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main_frame.tpl");
 }
 /* {block 'headerOffer'} */
-class Block_8405466535edf93e49a7965_50789066 extends Smarty_Internal_Block
+class Block_606064505ef52d3fd7e355_19154654 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'headerOffer' => 
   array (
-    0 => 'Block_8405466535edf93e49a7965_50789066',
+    0 => 'Block_606064505ef52d3fd7e355_19154654',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -75,12 +75,12 @@ offerList/truck">
 }
 /* {/block 'headerOffer'} */
 /* {block 'offers'} */
-class Block_19580239065edf93e49e5d17_58781906 extends Smarty_Internal_Block
+class Block_7191285635ef52d3fdb9b82_15227429 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'offers' => 
   array (
-    0 => 'Block_19580239065edf93e49e5d17_58781906',
+    0 => 'Block_7191285635ef52d3fdb9b82_15227429',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -128,25 +128,28 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <hr>
                 <tr>
                     <td>Magazyn:</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['formTire']->value->quantity;?>
- szt.</td>
+                    <td><?php ob_start();
+echo $_smarty_tpl->tpl_vars['formTire']->value->quantity;
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 > 0) {
+echo $_smarty_tpl->tpl_vars['formTire']->value->quantity;?>
+ szt.<?php } else { ?>Niedostępne<?php }?></td>
                 </tr>
             </tbody>
         </table>
-                
-                <div style="margin-top: 50px;clear:both">
+               <?php ob_start();
+echo $_smarty_tpl->tpl_vars['formTire']->value->quantity;
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2 > 0) {?> 
+                <div style="float:right">
                     <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 offerSummary/<?php echo $_smarty_tpl->tpl_vars['idtire']->value;?>
 " method="post">
-                      <div style=" float: right;">
                     <button class="btn btn-action" type="submit">Kup</button>
-        </div>
-                    <div style=" float: right;">
-                    <input id="sztuki_id" type="number" name="sztuki"  min="1" max="<?php echo $_smarty_tpl->tpl_vars['formTire']->value->quantity;?>
-"  value="1" style="font-size: 20px;float: right; margin-right: 15px; width: 80px;" class="form-control">Ilość szt.
-                    </form>
-                    </div>
                 </div>
+                    <input id="sztuki_id" type="number" name="sztuki"  min="1" max="<?php echo $_smarty_tpl->tpl_vars['formTire']->value->quantity;?>
+"  value="1" style="font-size: 20px;float: right; margin-right: 15px; width: 80px;" class="form-control"><p>ilość sztuk</p>
+                   <?php }?> 
     </div>
                 
 <div class="col-sm-12 offerText"><?php echo $_smarty_tpl->tpl_vars['formOffer']->value->description;?>

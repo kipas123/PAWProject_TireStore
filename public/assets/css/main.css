@@ -143,3 +143,18 @@ img.pull-left { margin-right: 10px; }
     float: none;
     margin: 0 auto;
 }
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-active {
+  height: 25px;
+  width: 25px;
+  background-color: #1AAF15;
+  border-radius: 50%;
+  display: inline-block;
+}

@@ -31,7 +31,7 @@ class RegisterCtrl {
         $this->formUser = new UserForm();
     }
 
-    public function validateLogin() {
+    private function validateLogin() {
         $v = new Validator();
         $this->formUser->login = $v->validateFromRequest("login", [
             'trim' => true,
@@ -70,11 +70,11 @@ class RegisterCtrl {
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());
         }
-
+        
         return !App::getMessages()->isError();
     }
 
-    public function validateAdress() {
+    private function validateAdress() {
         $this->formUser->name = ParamUtils::getFromRequest('name');
         $this->formUser->surname = ParamUtils::getFromRequest('surname');
         $this->formUser->city = ParamUtils::getFromRequest('city');
@@ -94,15 +94,16 @@ class RegisterCtrl {
     public function action_register() {
         // 1. walidacja id osoby do edycji
         if ($this->validateLogin() && $this->validateAdress()) {
-            $this->formUser->role = "user";
+            $this->formUser->role = 3;
+            $password_hash = password_hash($this->formUser->pass, PASSWORD_DEFAULT);
             
             
             try {
                 // wstawianie danych do bazy
                 $this->record = App::getDB()->insert("user",[
                     "login" => $this->formUser->login,
-                    "password" => $this->formUser->pass,
-                    "role" => $this->formUser->role,
+                    "password" => $password_hash,
+                    "roles_idroles" => $this->formUser->role,
                     "name" => $this->formUser->name,
                     "surname" => $this->formUser->surname,
                     "city" => $this->formUser->city,
@@ -110,11 +111,22 @@ class RegisterCtrl {
                     "housenumber" => $this->formUser->houseNumber,
                     "zipcode" => $this->formUser->zipcode,
                     "phoneNumber" => $this->formUser->phoneNumber,
+                    "created_by" => $this->formUser->login,
+                    "created_date" => date("Y-m-d H:i:s"),
+                    "lastmodified_by" => $this->formUser->login,
+                    "lastmodified_date" => date("Y-m-d H:i:s")
+                    
                 ]);
                 $this->formUser->iduser = App::getDB()->get("user","iduser",[
-                    "login" => $this->formUser->login
+                    "login" => $this->formUser->login,
                 ]);
-                
+                $this->formUser->role = App::getDB()->get("user",[
+                    "[>]roles(role)" => ["roles_idroles" => "idroles"]
+                ],
+                    "role.name"
+                ,[
+                    "iduser" => $this->formUser->iduser,
+                ]);
                 
                 RoleUtils::addRole($this->formUser->role);
                 SessionUtils::store("iduser", $this->formUser->iduser);
@@ -125,6 +137,7 @@ class RegisterCtrl {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
+                $this->generateView("home.tpl");
             }
             
         }else {
